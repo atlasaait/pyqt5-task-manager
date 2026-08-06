@@ -1,0 +1,11 @@
+pycache/
+*.pyc
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+.vscode/
+.idea/
+*.spec
