@@ -6,7 +6,7 @@ class FenetreApp(QtWidgets.QWidget):
     def __init__(self):
 
         super().__init__()
-        self.setWindowTitle("Rask Manager créé par moi - test")
+        self.setWindowTitle("Task Manager - TEST")
 
         contain = QtWidgets.QWidget()
         layout = QtWidgets.QFormLayout(contain)
