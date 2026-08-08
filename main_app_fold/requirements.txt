@@ -1,0 +1,2 @@
+package : sys, PyQt5
+python version : virtual environnement --> 3.14.0
