@@ -1,0 +1,44 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Apprendre les bases de Python",
+      "description": "Revoir les listes, dictionnaires et fonctions",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-08-15",
+      "created_at": "2026-08-08T10:00:00",
+      "tags": ["python", "apprentissage"]
+    },
+    {
+      "id": 2,
+      "title": "Créer l'interface CLI du task manager",
+      "description": "Ajouter les commandes add, list, complete et delete",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-08-12",
+      "created_at": "2026-08-07T14:30:00",
+      "tags": ["cli", "projet"]
+    },
+    {
+      "id": 3,
+      "title": "Sauvegarder les tâches dans un fichier JSON",
+      "description": "Implémenter le chargement et la sauvegarde automatique",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-08-18",
+      "created_at": "2026-08-08T09:15:00",
+      "tags": ["json", "persistance"]
+    },
+    {
+      "id": 4,
+      "title": "Ajouter un système de priorités",
+      "description": "Permettre de trier les tâches par priorité (high/medium/low)",
+      "status": "done",
+      "priority": "low",
+      "due_date": "2026-08-10",
+      "created_at": "2026-08-05T16:00:00",
+      "tags": ["feature"]
+    }
+  ]
+}
