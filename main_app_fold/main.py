@@ -1,5 +1,7 @@
 import sys
 from PyQt5 import QtWidgets
+import json
+import os
 
 class FenetreApp(QtWidgets.QWidget):
 
@@ -7,6 +9,7 @@ class FenetreApp(QtWidgets.QWidget):
 
         super().__init__()
         self.setWindowTitle("Task Manager - TEST")
+        self.resize(800, 800)
 
         contain = QtWidgets.QWidget()
         layout = QtWidgets.QFormLayout(contain)
@@ -39,8 +42,6 @@ class FenetreApp(QtWidgets.QWidget):
         property_list.addItems(["Size", "Theme", "Add stats"])  
         layout.addRow(property_list)
 
-        self.setFixedHeight(800)
-        self.setFixedWidth(800)
         self.show()
 
 if __name__ == "__main__":
