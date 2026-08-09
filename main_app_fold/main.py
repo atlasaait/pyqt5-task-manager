@@ -1,14 +1,15 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QListWidget, QMainWindow, QVBoxLayout, QWidget
 import json
-import os
 
-class FenetreApp(QtWidgets.QWidget):
+
+class FenetreApp(QtWidgets.QWidget, QMainWindow):
 
     def __init__(self):
 
         super().__init__()
-        self.setWindowTitle("Task Manager - TEST")
+        self.setWindowTitle("Gestionnaire de tâches")
         self.resize(800, 800)
 
         contain = QtWidgets.QWidget()
@@ -32,7 +33,6 @@ class FenetreApp(QtWidgets.QWidget):
         settings_list.addItems(["Language", "Elements", "Other"])
         layout.addRow(settings_list)
 
-
         ## PROPERTIES
         property = QtWidgets.QLabel("Propriétés du task manager")
         property.setStyleSheet("font-weight: bold; font-size: 17px;")
@@ -41,6 +41,13 @@ class FenetreApp(QtWidgets.QWidget):
         property_list = QtWidgets.QComboBox()
         property_list.addItems(["Size", "Theme", "Add stats"])  
         layout.addRow(property_list)
+
+    def charger_taches(chemin="tasks.json"):
+        try:
+            with open(chemin, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return []
 
         self.show()
 
