@@ -3,8 +3,41 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QListWidget, QMainWindow, QVBoxLayout, QWidget
 import json
 
+def charger_taches(chemin="tasks.json"):
+    try:
+        with open(chemin, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+       return []
+    
+taches = charger_taches()
 
-class FenetreApp(QtWidgets.QWidget, QMainWindow):
+liste_widget = QListWidget()
+
+for tache in taches:
+    liste_widget.addItem(tache["nom"])
+
+class MaFenetre(QMainWindow):
+
+    def __init__(self):
+
+        self.setWindowTitle("TEST TASK MANAGER")
+        self.taches = charger_taches()
+        self.liste_widget = QListWidget()
+
+        for tache in self.taches:
+            self.liste_widget.addItem(tache["nom"])
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.liste_widget)
+
+        conteneur = QWidget()
+        conteneur.setLayout(layout)
+        self.setCentralWidget(conteneur)
+
+
+
+class FenetreApp(QtWidgets.QWidget):
 
     def __init__(self):
 
@@ -41,13 +74,6 @@ class FenetreApp(QtWidgets.QWidget, QMainWindow):
         property_list = QtWidgets.QComboBox()
         property_list.addItems(["Size", "Theme", "Add stats"])  
         layout.addRow(property_list)
-
-    def charger_taches(chemin="tasks.json"):
-        try:
-            with open(chemin, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except FileNotFoundError:
-            return []
 
         self.show()
 
