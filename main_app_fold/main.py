@@ -3,26 +3,14 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QListWidget, QMainWindow, QVBoxLayout, QWidget
 import json
 
-def charger_taches(chemin="tasks.json"):
-    try:
-        with open(chemin, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-       return []
-    
-taches = charger_taches()
-
-liste_widget = QListWidget()
-
-for tache in taches:
-    liste_widget.addItem(tache["nom"])
-
 class MaFenetre(QMainWindow):
 
     def __init__(self):
 
+        super().__init__()
+
         self.setWindowTitle("TEST TASK MANAGER")
-        self.taches = charger_taches()
+        self.taches = self.charger_taches()
         self.liste_widget = QListWidget()
 
         for tache in self.taches:
@@ -35,8 +23,13 @@ class MaFenetre(QMainWindow):
         conteneur.setLayout(layout)
         self.setCentralWidget(conteneur)
 
-
-
+    def charger_taches(chemin="tasks.json"):
+        try:
+            with open(chemin, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return []
+        
 class FenetreApp(QtWidgets.QWidget):
 
     def __init__(self):
